@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Lilita+One&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+:root {
+  --color-default: #ffeadd;
+  --color-primary: #fcaeae;
+  --color-secondary: #ff8989;
+  --color-tersier: #ff6666;
+  --color-transparant: #fcaeae9a;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+  border-radius: 90px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-tersier);
+  border-radius: 90px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-secondary);
+  box-sizing: border-box;
+}
+
+p,
+ul,
+li,
+a {
+  font-family: "Lilita One", cursive;
+  color: var(--color-default);
+}
+
+h2 {
+  color: var(--color-default);
+}
+
+h2,
+h1 {
+  font-family: "Cabin Sketch", cursive;
+  font-size: 60px;
+}
+
+aside .icon {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 5px;
+}
+
+a {
+  font-size: medium;
+  text-decoration: none;
+  background-color: var(--color-tersier);
+  background-size: contain;
+  padding: 10px;
+  transition: 0.2s;
+  margin: 3px;
+  display: block;
+  border-bottom: 2px solid var(--color-primary);
+  border-right: 2px solid var(--color-primary);
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  border-right: 2px solid var(--color-primary);
+  transform: scale(1.1);
+}
+
+aside .icon a {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+}
+.attention {
+  display: flex;
+  font-size: small;
+  flex-direction: column;
+}
+.attention ul {
+  margin: 0px 0px 10px 30px;
+  background-size: 50vh;
+}
+
+.attention ul li,
+h4 {
+  color: var(--color-tersier);
+  list-style: armenian;
+}
+
+aside {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 50vh;
+  background-color: var(--color-default);
+  border-right: 5px double var(--color-secondary);
+  border-width: 10px;
+}
+aside img {
+  width: 50%;
+  border: solid 2px var(--color-tersier);
+  border-radius: 100px;
+  margin: 20px 20px 10px 20px;
+}
+
+aside h2 {
+  font-size: 6vh;
+  color: var(--color-tersier);
+}
+aside p {
+  margin: 10px 30px 5px 30px;
+  text-align: center;
+  color: var(--color-tersier);
+}
+
+main {
+  margin: 0 0 0 25vh;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+
+main article h2 {
+  text-align: end;
+  margin: -20px 0px 0px 0px;
+}
+
+main nav ul {
+  display: flex;
+  list-style: none;
+  padding: 20px;
+  position: relative;
+}
+
+main nav ul li {
+  margin: 0px 10px 10px 10px;
+  transition: 0.2s;
+}
+
+main nav ul li a:link,
+a:active,
+a:current {
+  background-color: var(--color-primary);
+}
+
+main article {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 20px;
+  text-align: end;
+  gap: 10px;
+}
+main article p {
+  margin-left: 80px;
+}
+
+.container {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.25);
+  border-right: none;
+  border-radius: 20px 0px 0px 20px;
+  border-left: 10px double var(--color-tersier);
+  padding: 15px 15px 50px 15px;
+  filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+  max-height: 67vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  margin-left: 55vh;
+  margin-bottom: 100px;
+}
+
+.container .gallery_items {
+  /* scroll-snap-align: start; */
+  min-width: 55%;
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.container .gallery_items .gallery_image {
+  border: solid 3px var(--color-tersier);
+  min-width: 30%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+/* X-Small devices portrait phones, less than 576px */
+@media (max-width: 575.98px) {
+  body {
+    overflow-x: hidden;
+  }
+  aside {
+    position: static;
+    width: auto;
+    border-right: none;
+    border-bottom: 5px double var(--color-secondary);
+  }
+
+  main {
+    display: block;
+    margin: 0;
+  }
+
+  .container {
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .container .gallery_items {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    min-width: 50%;
+  }
+
+  .container .gallery_items .gallery_image {
+    min-width: 230px;
+  }
+}
