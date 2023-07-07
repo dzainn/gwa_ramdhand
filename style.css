@@ -53,7 +53,7 @@ h1 {
   font-size: 60px;
 }
 
-#navbar {
+.navbar {
   display: none;
 }
 
@@ -213,7 +213,7 @@ main article p {
 
 /* X-Small devices portrait phones, less than 576px */
 @media (max-width: 575.98px) {
-  #navbar1 {
+  .navbar {
     display: flex;
     justify-content: center;
   }
