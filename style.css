@@ -213,7 +213,7 @@ main article p {
 
 /* X-Small devices portrait phones, less than 576px */
 @media (max-width: 575.98px) {
-  .navbar {
+  #navbar1 {
     display: flex;
     justify-content: center;
   }
