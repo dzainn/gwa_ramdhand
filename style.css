@@ -7,10 +7,11 @@
   --color-secondary: #ff8989;
   --color-tersier: #ff6666;
   --color-transparant: #fcaeae9a;
-  scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 3px;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,7 +27,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -50,6 +51,22 @@ h2,
 h1 {
   font-family: "Cabin Sketch", cursive;
   font-size: 60px;
+}
+
+#navbar {
+  display: none;
+}
+
+aside {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vh;
+  background-color: var(--color-default);
+  border-right: 5px double var(--color-secondary);
+  border-width: 10px;
+  height: 100%;
 }
 
 aside .icon {
@@ -101,22 +118,10 @@ h4 {
   list-style: armenian;
 }
 
-aside {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  width: 50vh;
-  background-color: var(--color-default);
-  border-right: 5px double var(--color-secondary);
-  border-width: 10px;
-}
 aside img {
   width: 50%;
   border: solid 2px var(--color-tersier);
-  border-radius: 100px;
+  border-radius: 100%;
   margin: 20px 20px 10px 20px;
 }
 
@@ -175,12 +180,12 @@ main article p {
 .container {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.25);
+  background-color: var(--color-transparant);
   border-right: none;
   border-radius: 20px 0px 0px 20px;
   border-left: 10px double var(--color-tersier);
   padding: 15px 15px 50px 15px;
-  filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+  filter: drop-shadow(0 0px 20px rgba(0, 0, 0, 0.125));
   max-height: 67vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -191,29 +196,50 @@ main article p {
 
 .container .gallery_items {
   /* scroll-snap-align: start; */
-  min-width: 55%;
-  height: 70%;
+  min-width: 100%;
+  height: 30%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: wrap;
   gap: 15px;
 }
 
 .container .gallery_items .gallery_image {
   border: solid 3px var(--color-tersier);
-  min-width: 30%;
+  max-width: 47%;
   object-fit: cover;
   border-radius: 30px;
 }
 
 /* X-Small devices portrait phones, less than 576px */
 @media (max-width: 575.98px) {
-  body {
-    overflow-x: hidden;
+  .navbar {
+    display: flex;
+    justify-content: center;
   }
+  nav {
+    background-color: var(--color-transparant);
+    margin: 10px;
+    display: block;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+    scroll-behavior: smooth;
+    border-radius: 15px;
+    z-index: 1;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
   aside {
+    padding-top: 70px;
     position: static;
     width: auto;
+    padding-bottom: 135px;
     border-right: none;
     border-bottom: 5px double var(--color-secondary);
   }
@@ -223,11 +249,16 @@ main article p {
     margin: 0;
   }
 
+  main nav {
+    display: none;
+  }
+
   .container {
-    border: none;
-    margin: 0;
-    border-radius: 0;
+    border-radius: 30px;
     max-height: 100vh;
+    overflow-y: hidden;
+    border: none;
+    margin: 20px 20px 100px 20px;
   }
 
   .container .gallery_items {
